@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
-const process = dotenv.config(); // load env files
+dotenv.config(); // load env files
 
 //env variables
 const DB_URL = process.env.DB_URL;
@@ -13,8 +13,20 @@ const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 
-// application entry point.
-main();
+//for database
+const connectDatabase = async () => {
+  console.log("👉 : Connecting to Database.");
+  try {
+    await mongoose.connect(DB_URL);
+    console.log("✅ : Connection Successful.");
+  } catch (e) {
+    console.log(
+      "🍎 : Connecting to Database failed because of the following error:\n\n" +
+        e
+    );
+    process.exit(1);
+  }
+};
 
 //main application
 async function main() {
@@ -29,14 +41,5 @@ async function main() {
   }
 }
 
-//for database
-const connectDatabase = async () => {
-  console.log("👉 : Connecting to Database.");
-  try {
-    await mongoose.connect(DB_URL);
-    console.log("✅ : Connection Successful.");
-  } catch (e) {
-    console.log("🍎 : Connecting to Database failed" + e);
-    process.exit(1);
-  }
-};
+// application entry point.
+main();
