@@ -76,7 +76,7 @@ function Login() {
               <span className="text-sm text-slate-500 flex gap-1 mt-2">
                 Can't remember password?
                 <a className="hover:text-slate-700" href="/reset">
-                  Forgot password
+                  Forgot
                 </a>
               </span>
             </div>
