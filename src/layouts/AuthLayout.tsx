@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import Loading from "../pages/Errors/Loading";
+import Loading from "../components/Loading";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -14,6 +14,7 @@ function AuthLayout({ children }: AuthLayoutProps) {
       setLoading(false);
     }, 1000);
   }, []);
+
   return (
     <>
       {loading &&
