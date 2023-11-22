@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const AuthRouter = require("./routes/Auth.routes");
 const app = express();
 dotenv.config(); // load env files
 
@@ -12,6 +13,9 @@ const PORT = process.env.PORT;
 //app middlewares
 app.use(cors());
 app.use(express.json());
+
+//endpoints routes
+app.use("/auth", AuthRouter);
 
 //for database
 const connectDatabase = async () => {
