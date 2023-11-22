@@ -1,19 +1,32 @@
 import PhoneScreenShot from "../../assets/images/phone.png";
 import FullLogo from "../../assets/images/full_logo.png";
 import Footer from "../../components/Footer";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import TopMessage from "../../components/TopMessage";
 function Login() {
   const [loading, setLoading] = useState(false);
+  const [showWarningMessage, setShowWarningMessage] = useState(true);
   // const [validation, setValidation] = useState({
   //   err: false,
   //   on: "",
   //   msg: "",
   // });
 
+  const loginUser = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Form Submitted.");
+  };
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
     <>
+      {showWarningMessage && (
+        <TopMessage
+          text="This is a demo website created by a developer to test his skills and have no connection to real instagram website, I recommend you to never enter your real passwords in this website. However, you can see the full code on how your data is being handled on GitHub."
+          showMessage={setShowWarningMessage}
+        />
+      )}
       <section className="absolute w-screen h-screen left-0 top-0 flex flex-col justify-center">
         <div className="flex mt-10 justify-center items-center gap-2 w-screen">
           <div className="hidden md:block">
@@ -24,7 +37,7 @@ function Login() {
             />
           </div>
           <section className="flex flex-col min-w-[400px] w-fit">
-            <div className="border-[1px] p-8">
+            <form onSubmit={loginUser} className="border-[1px] p-8">
               <div className="flex w-full items-center justify-center">
                 <img src={FullLogo} alt="Instagram Logo" className="w-44" />
               </div>
@@ -32,6 +45,7 @@ function Login() {
                 <input
                   disabled={loading}
                   value={username}
+                  autoComplete="email"
                   onChange={(e) => {
                     setUsername(e.target.value);
                   }}
@@ -48,6 +62,7 @@ function Login() {
                 <input
                   disabled={loading}
                   value={password}
+                  autoComplete="current-password"
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
@@ -79,7 +94,7 @@ function Login() {
                   Forgot
                 </a>
               </span>
-            </div>
+            </form>
             <div className="border-[1px] flex justify-center items-center my-4 p-8">
               <span className="text-slate-600">
                 Don't have an account?{" "}

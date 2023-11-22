@@ -11,7 +11,12 @@ const DB_URL = process.env.DB_URL;
 const PORT = process.env.PORT;
 
 //app middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
 app.use(express.json());
 
 //endpoints routes
