@@ -7,4 +7,4 @@ Full stack clone of popular social site Instagram with MERN stack.
 To get the local environment: <br/>
 clone the repo using: `git clone git@github.com:hariacharya80/instagram.git`
 
-<img scr="screenshot.png"/>
+<img src="screenshot.png"/>
