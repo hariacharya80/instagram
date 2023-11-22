@@ -5,7 +5,6 @@ import Footer from "../../components/Footer";
 function Reset() {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   return (
     <section className="absolute w-full top-0 left-0 flex flex-col items-center">
       <section className="flex flex-col mt-10 min-w-[400px] w-fit">

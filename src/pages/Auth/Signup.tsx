@@ -17,9 +17,9 @@ function Signup() {
           <fieldset>
             <input
               disabled={loading}
-              value={username}
+              value={email}
               onChange={(e) => {
-                setUsername(e.target.value);
+                setEmail(e.target.value);
               }}
               className={
                 loading

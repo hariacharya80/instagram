@@ -4,11 +4,11 @@ import Footer from "../../components/Footer";
 import { useState } from "react";
 function Login() {
   const [loading, setLoading] = useState(false);
-  const [validation, setValidation] = useState({
-    err: false,
-    on: "",
-    msg: "",
-  });
+  // const [validation, setValidation] = useState({
+  //   err: false,
+  //   on: "",
+  //   msg: "",
+  // });
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
