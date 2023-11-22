@@ -3,15 +3,18 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
-dotenv.config(); // load env files
+const process = dotenv.config(); // load env files
 
 //env variables
 const DB_URL = process.env.DB_URL;
 const PORT = process.env.PORT;
+
 //app middlewares
+app.use(cors());
 app.use(express.json());
 
-main(); // call main function
+// application entry point.
+main();
 
 //main application
 async function main() {
