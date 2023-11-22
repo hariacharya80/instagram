@@ -1,7 +1,17 @@
 import PhoneScreenShot from "../../assets/images/phone.png";
 import FullLogo from "../../assets/images/full_logo.png";
 import Footer from "../../components/Footer";
+import { useState } from "react";
 function Login() {
+  const [loading, setLoading] = useState(false);
+  const [validation, setValidation] = useState({
+    err: false,
+    on: "",
+    msg: "",
+  });
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <>
       <section className="absolute w-screen h-screen left-0 top-0 flex flex-col justify-center">
@@ -20,20 +30,48 @@ function Login() {
               </div>
               <fieldset>
                 <input
-                  className="border-2 bg-slate-200 p-2 my-2 w-full rounded"
+                  disabled={loading}
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  className={
+                    loading
+                      ? "border-2 cursor-not-allowed bg-slate-300 p-2 my-2 w-full rounded"
+                      : "border-2 bg-slate-100 p-2 my-2 w-full rounded"
+                  }
                   type="text"
                   placeholder="Username or Email"
                 />
               </fieldset>
               <fieldset>
                 <input
-                  className="border-2 bg-slate-200 p-2 my-2 w-full rounded"
+                  disabled={loading}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  className={
+                    loading
+                      ? "border-2 cursor-not-allowed bg-slate-300 p-2 my-2 w-full rounded"
+                      : "border-2 bg-slate-100 p-2 my-2 w-full rounded"
+                  }
                   type="password"
                   placeholder="Password"
                 />
               </fieldset>
-              <button className="w-full bg-[#1877f2] text-white p-1 rounded-md hover:bg-[#0c50aa] transition-colors">
-                Log in
+              <button
+                onClick={() => setLoading((prev) => !prev)}
+                className={
+                  loading
+                    ? "w-full flex justify-center items-center gap-2 bg-[#5f9ced] text-white p-1 rounded-md cursor-not-allowed transition-colors"
+                    : "w-full bg-[#1877f2] text-white p-1 rounded-md hover:bg-[#0c50aa] transition-colors"
+                }
+              >
+                {loading && (
+                  <div className="w-4 animate-spin h-4 rounded-full border-2 border-black border-t-white"></div>
+                )}
+                <span>{loading ? "Please wait.." : "Sign in"}</span>
               </button>
               <span className="text-sm text-slate-500 flex gap-1 mt-2">
                 Can't remember password?
