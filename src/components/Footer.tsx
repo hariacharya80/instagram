@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <section className="flex align-bottom py-4 justify-center">
-      <p className="text-slate-500 w-1/2 text-center text-sm">
+      <p className="text-slate-500 w-5/6 text-center text-sm">
         Open Source Instagram Clone with{" "}
         <span className="text-rose-500">&hearts;</span>{" "}
         <a

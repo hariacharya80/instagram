@@ -4,6 +4,8 @@ import "./assets/styles/global.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import AuthLayout from "./layouts/AuthLayout";
+import Signup from "./pages/Auth/Signup";
+import Reset from "./pages/Auth/Reset";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -23,6 +25,22 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             element={
               <AuthLayout>
                 <Login />
+              </AuthLayout>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <AuthLayout>
+                <Signup />
+              </AuthLayout>
+            }
+          />
+          <Route
+            path="/reset"
+            element={
+              <AuthLayout>
+                <Reset />
               </AuthLayout>
             }
           />
