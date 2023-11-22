@@ -1,8 +1,9 @@
-import LoadingAnimation from "../assets/animation/loading.gif";
+import InstagramLogo from "../assets/images/instagram.png";
 function Loading() {
   return (
-    <section className="absolute w-screen h-screen flex justify-center items-center">
-      <img src={LoadingAnimation} width={"200px"} alt="Loading..." />
+    <section className="absolute w-screen h-screen flex flex-col gap-10 items-center justify-center">
+      <img src={InstagramLogo} width={"100px"} alt="Loading..." />
+      <div className="w-4 h-4 border-2 border-rose-500 border-t-white animate-spin rounded-full p-2"></div>
     </section>
   );
 }
